@@ -1,11 +1,9 @@
 import React from "react"
 import { useForm } from "react-hook-form"
-import Input from "../input"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { registerFormSchema } from "./registerFormSchema"
-
-
 import { InputContainer } from "../../styles/Input"
+import Input from "../Input"
 
 const RegisterForm = ({ registerUser }) => {
   const {
@@ -27,7 +25,7 @@ const RegisterForm = ({ registerUser }) => {
     <>
       <InputContainer>
         <h3>Crie sua conta</h3>
-        <p>Rápido e grátis, vamos nessa</p>
+        <p id="info">Rápido e grátis, vamos nessa</p>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             label="Nome"
@@ -74,16 +72,16 @@ const RegisterForm = ({ registerUser }) => {
           <label htmlFor="modulo">Selecionar módulo</label>
           <select id="modulo" {...register("course_module")}>
             <option value="">Selecione</option>
-            <option value="primero">
+            <option value="Primeiro módulo (Introdução ao Frontend)">
               Primeiro módulo (Introdução ao Frontend)
             </option>
-            <option value="segundo">Segundo módulo (Frontend Avançado)</option>
-            <option value="terceiro">
+            <option value="Segundo módulo (Frontend Avançado)">Segundo módulo (Frontend Avançado)</option>
+            <option value="Terceiro módulo (Introdução ao Backend)">
               Terceiro módulo (Introdução ao Backend)
             </option>
-            <option value="quarto">Quarto módulo (Backend Avançado)</option>
+            <option value="Quarto módulo (Backend Avançado)">Quarto módulo (Backend Avançado)</option>
           </select>
-          <button type="submit">Cadastrar</button>
+          <button id="buttonRegister" type="submit">Cadastrar</button>
         </form>
       </InputContainer>
     </>

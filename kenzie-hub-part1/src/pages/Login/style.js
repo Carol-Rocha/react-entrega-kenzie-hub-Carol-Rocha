@@ -11,6 +11,8 @@ export const PageLogin = styled.div`
 
   height: 100vh;
 
+  min-width: 323px;
+
   #logo {
     width: 101px;
     height: 14px;

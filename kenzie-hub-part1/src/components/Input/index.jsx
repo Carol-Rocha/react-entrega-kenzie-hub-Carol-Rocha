@@ -1,5 +1,5 @@
 import React from 'react'
-import { InputContainer } from './style'
+
 
  const Input = ({label, type, placeholde, register, error}) => {
   return (

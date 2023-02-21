@@ -15,8 +15,11 @@ export default createGlobalStyle`
   --color-primary-focus: #FF427F;
   --color-primary-negative: #59323F;
 
-  --color-sucess: #3FE864;
-  --color-negative: #E83F5B;
+  --toastify-color-dark: #343B41;
+  --toastify-icon-color-error:#E83F5B;
+  --toastify-icon-color-success:#3FE864;
+  --toastify-color-progress-success:#3FE864;
+  --toastify-color-progress-error: #E83F5B;
 
     
   --color-grey-4:#121214;

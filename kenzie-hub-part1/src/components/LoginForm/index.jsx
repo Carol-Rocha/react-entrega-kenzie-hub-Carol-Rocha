@@ -2,10 +2,10 @@ import React from "react"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useNavigate } from "react-router-dom"
-import Input from "../input"
 import { loginFormSchema } from "./loginFormSchema"
 import visualizar from "../../assets/visualizar.png"
 import { InputContainer } from "../../styles/Input"
+import Input from "../Input"
 
 const LoginForm = ({ loginUser }) => {
   const {
@@ -41,6 +41,7 @@ const LoginForm = ({ loginUser }) => {
         <div className="sectionInput">
           <input
             id="password"
+            className="inputLoginPassword"
             type="password"
             placeholder="Digite sua senha"
             {...register("password")}

@@ -7,10 +7,13 @@ export const InputContainer = styled.div`
   flex-direction: column;
 
   width: 90%;
+  max-width: 369px;
 
   padding: 34px 18px;
 
   gap: 1rem;
+
+  border-radius: var(--border-radius-4);
 
   h3 {
     color: var(--color-grey-0);
@@ -37,8 +40,11 @@ export const InputContainer = styled.div`
   }
 
   input {
+    background-color: var(--color-grey-2);
+
     border: 1px solid var(--color-grey-0);
     border-radius: 3.21px;
+
     padding: 0.5rem 0.8125rem;
 
     outline: none;
@@ -52,7 +58,7 @@ export const InputContainer = styled.div`
     }
   }
 
-  #password {
+  .inputLoginPassword {
     border: none;
   }
 
@@ -89,12 +95,20 @@ export const InputContainer = styled.div`
     background-color: var(--color-primary);
 
     color: var(--color-white);
+
+    &:hover {
+      background-color: var(--color-primary-focus);
+    }
   }
 
   .bttn_register {
     color: var(--color-grey-0);
 
     background-color: var(--color-grey-1);
+
+    &:hover {
+      background-color: var(--color-grey-2);
+    }
   }
 
   p {
@@ -110,6 +124,36 @@ export const InputContainer = styled.div`
     margin-top: 0.7rem;
   }
 
+  #info {
+    text-align: center;
+  }
 
+  select {
+    background-color: var(--color-grey-2);
 
+    border: 1px solid var(--color-grey-0);
+    border-radius: 3.21px;
+
+    padding: 0.5rem 0.8125rem;
+
+    outline: none;
+
+    color: var(--color-grey-1);
+    font-size: 0.8144rem;
+
+    cursor: pointer;
+  }
+
+  #buttonRegister {
+    background-color: var(--color-primary-negative);
+
+    color: var(--color-white);
+
+    font-size: 0.7994rem;
+    font-weight: var(--font-weight-500);
+
+    &:hover {
+      background-color: var(--color-primary);
+    }
+  }
 `
