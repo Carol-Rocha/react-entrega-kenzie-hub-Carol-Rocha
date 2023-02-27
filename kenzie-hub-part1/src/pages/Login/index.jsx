@@ -3,11 +3,11 @@ import LoginForm from "../../components/LoginForm"
 import logoKenzieHub from "../../assets/logoKenzieHub.png"
 import { PageLogin } from "./style"
 
-const Login = ({ loginUser }) => {
+const Login = () => {
   return (
     <PageLogin>
       <img id="logo" src={logoKenzieHub} alt="logo" />
-      <LoginForm loginUser={loginUser} />
+      <LoginForm  />
     </PageLogin>
   )
 }

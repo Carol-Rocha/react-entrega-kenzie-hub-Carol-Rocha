@@ -4,11 +4,11 @@ import RegisterForm from "../../components/RegisterForm"
 import { PageRegister } from "./style"
 
 
-const Register = ({registerUser}) => {
+const Register = () => {
   return (
     <PageRegister>
       <Header button="Voltar" />
-      <RegisterForm registerUser={registerUser} />
+      <RegisterForm />
     </PageRegister>
   )
 }

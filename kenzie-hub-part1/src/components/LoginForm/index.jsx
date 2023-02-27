@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useNavigate } from "react-router-dom"
@@ -6,8 +6,14 @@ import { loginFormSchema } from "./loginFormSchema"
 import visualizar from "../../assets/visualizar.png"
 import { InputContainer } from "../../styles/Input"
 import Input from "../Input"
+import { useUserContext } from "../../context/UserContext"
 
-const LoginForm = ({ loginUser }) => {
+const LoginForm = () => {
+  const { loginUser } = useUserContext()
+
+  const navigate = useNavigate()
+
+
   const {
     register,
     handleSubmit,
@@ -18,12 +24,9 @@ const LoginForm = ({ loginUser }) => {
   })
 
   const onSubmitFunction = (data) => {
-    console.log(data)
     loginUser(data)
     reset()
   }
-
-  const navigate = useNavigate()
 
   return (
     <InputContainer>
