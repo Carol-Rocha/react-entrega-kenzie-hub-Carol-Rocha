@@ -10,10 +10,11 @@ export const InputContainer = styled.div`
   max-width: 369px;
 
   padding: 34px 18px;
-
   gap: 1rem;
 
   border-radius: var(--border-radius-4);
+
+
 
   h3 {
     color: var(--color-grey-0);

@@ -4,11 +4,12 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { modalFormSchema } from "./modalFormSchema"
 import close from "../../../../assets/X.png"
 import { useTechContext } from "../../../../context/TechContext"
+import { BackgroundModalStyled } from "./style"
+import { InputContainer } from "../../../../styles/Input"
 
-const Modal = ({ isEdit , open, closeModal, techId }) => {
-
+const Modal = ({ isEdit, open, closeModal, techId, setRefetch }) => {
+  const { addTech, updateTech, deleteTech} = useTechContext()
   
-  const { addTech, updateTech, deleteTech, setRefetch} = useTechContext()
 
   const {
     register,
@@ -20,28 +21,30 @@ const Modal = ({ isEdit , open, closeModal, techId }) => {
   })
 
   const onSubmit = (data) => {
-    if(isEdit){
-
+    if (isEdit) {
       updateTech(techId, data)
-
-    }else{
+      console.log(data)
+    } else {
       addTech(data)
+      console.log(data)
     }
-    setRefetch(prevState => !prevState)
+    setRefetch((prevState) => !prevState)
     reset()
   }
 
   return (
     <>
       {open && (
-        <dialog open>
-          <div>
-            <h4>{isEdit ? "Tecnologia Detalhe" : "Cadastrar tecnologia"}</h4>
-            <img onClick={closeModal} src={close} alt="close" />
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <BackgroundModalStyled open>
+          <div className="modalContainer">
+            <div id="titleInformation">
+              <h4>{isEdit ? "Tecnologia Detalhe" : "Cadastrar tecnologia"}</h4>
+              <img onClick={closeModal} src={close} alt="close" />
+            </div>
+            <form id="formModal" onSubmit={handleSubmit(onSubmit)}>
               <label htmlFor="title">Nome</label>
               <input id="title" type="text" {...register("title")} />
-              {errors.title && <p>{errors.title.message}</p>}
+              {errors.title && <p className="errorMessage">{errors.title.message}</p>}
               <label htmlFor="status">Selecionar status</label>
               <select id="status" {...register("status")}>
                 <option value="">Selecionar </option>
@@ -49,20 +52,30 @@ const Modal = ({ isEdit , open, closeModal, techId }) => {
                 <option value="Intermediário">Intermediário</option>
                 <option value="Avançado">Avançado</option>
               </select>
-              {errors.status && <p>{errors.status.message}</p>}
+              {errors.status && <p className="errorMessage">{errors.status.message}</p>}
               <div>
                 {isEdit ? (
-                  <>
-                    <button type="submit">Salvar alterações</button>
-                    <button type="button" onClick={() => deleteTech(techId)} >Excluir</button>
-                  </>
+                  <div className="buttonsModal">
+                    <button id="changeButton" type="submit">
+                      Salvar alterações
+                    </button>
+                    <button
+                      id="deleteButton"
+                      type="button"
+                      onClick={() => deleteTech(techId)}
+                    >
+                      Excluir
+                    </button>
+                  </div>
                 ) : (
-                  <button type="submit">Cadastrar tecnologia</button>
+                  <button id="registerTech" type="submit">
+                    Cadastrar tecnologia
+                  </button>
                 )}
               </div>
             </form>
           </div>
-        </dialog>
+        </BackgroundModalStyled>
       )}
     </>
   )

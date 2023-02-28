@@ -6,22 +6,19 @@ export const HeaderHomeStyled = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  width: 90%;
-  
-
-
+  padding-top: 1rem;
 
   #backButton {
     color: var(--color-grey-0);
-    font-size: 0.5994rem;
+    font-size: var(--font-size-12);
 
     background-color: var(--color-grey-3);
 
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1.2rem;
 
     border-radius: var(--border-radius-4);
-    
-    &:hover{
+
+    &:hover {
       background-color: var(--color-grey-2);
     }
   }

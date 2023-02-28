@@ -27,7 +27,7 @@ const RegisterForm = () => {
 
   return (
     <>
-      <InputContainer>
+      <InputContainer >
         <h3>Crie sua conta</h3>
         <p id="info">Rápido e grátis, vamos nessa</p>
         <form onSubmit={handleSubmit(onSubmit)}>

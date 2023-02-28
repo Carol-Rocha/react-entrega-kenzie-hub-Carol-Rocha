@@ -51,18 +51,18 @@ const Dashboard = () => {
         <HeaderHome button="Sair" />
         <div className="userInformation">
           <h1>
-            Olá, <span>{user?.name}</span>
+            Olá,  <span className="userName">{user?.name}</span>
           </h1>
           <span id="userModule">{user?.course_module}</span>
         </div>
-        <div>
+        <div className="containerAddTech">
           <p>Tecnologias</p>
-          <button onClick={() => openModal()}>+</button>
+          <button id="addButton" onClick={() => openModal()}>+</button>
         </div>
         {user && (
           <TechList
             setTechId={setTechId}
-            techs={user?.techs}
+            techs={user.techs}
             openModal={openModal}
           />
         )}

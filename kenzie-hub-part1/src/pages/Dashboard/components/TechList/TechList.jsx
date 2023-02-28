@@ -1,10 +1,12 @@
 import React from "react"
+import { ListStyle } from "./style"
 
 const TechList = ({ techs, openModal, setTechId }) => {
   return (
-    <ul>
+    <ListStyle>
       {techs.map((tech) => (
         <li
+          key={tech.id}
           onClick={() => {
             setTechId(tech.id)
             openModal(true)
@@ -14,7 +16,7 @@ const TechList = ({ techs, openModal, setTechId }) => {
           <span>{tech.status}</span>
         </li>
       ))}
-    </ul>
+    </ListStyle>
   )
 }
 export default TechList
