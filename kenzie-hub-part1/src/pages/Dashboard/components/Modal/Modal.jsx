@@ -1,15 +1,13 @@
 import React from "react"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { modalFormSchema } from "./modalFormSchema"
+import { modalFormSchema, modalFormEditSchema } from "./modalFormSchema"
 import close from "../../../../assets/X.png"
 import { useTechContext } from "../../../../context/TechContext"
 import { BackgroundModalStyled } from "./style"
-import { InputContainer } from "../../../../styles/Input"
 
-const Modal = ({ isEdit, open, closeModal, techId, setRefetch }) => {
-  const { addTech, updateTech, deleteTech} = useTechContext()
-  
+const Modal = ({ isEdit, open, closeModal, techId, setTechId, setRefetch, techName, setTechName }) => {
+  const { addTech, updateTech, deleteTech } = useTechContext()
 
   const {
     register,
@@ -17,19 +15,30 @@ const Modal = ({ isEdit, open, closeModal, techId, setRefetch }) => {
     formState: { errors },
     reset,
   } = useForm({
-    resolver: yupResolver(modalFormSchema),
+    resolver: yupResolver(isEdit ? modalFormEditSchema : modalFormSchema),
   })
 
-  const onSubmit = (data) => {
+  const handleDeleteTech = async () => {
+    await deleteTech(techId)
+    setTechId('')
+    setTechName('')
+    closeModal()
+    setRefetch((prevState) => !prevState)
+  }
+
+  const onSubmit = async (data) => {
     if (isEdit) {
-      updateTech(techId, data)
+      await updateTech(techId, data)
       console.log(data)
     } else {
-      addTech(data)
+      await addTech(data)
       console.log(data)
     }
+    setTechId('')
+    setTechName('')
     setRefetch((prevState) => !prevState)
     reset()
+    closeModal()
   }
 
   return (
@@ -43,8 +52,17 @@ const Modal = ({ isEdit, open, closeModal, techId, setRefetch }) => {
             </div>
             <form id="formModal" onSubmit={handleSubmit(onSubmit)}>
               <label htmlFor="title">Nome</label>
-              <input id="title" type="text" {...register("title")} />
-              {errors.title && <p className="errorMessage">{errors.title.message}</p>}
+              <input
+                id="title"
+                type="text"
+                disabled={isEdit}
+                defaultValue={techName ? techName : ""}
+                placeholder={techName ? techName : ""}
+                {...register("title")}
+              />
+              {errors.title && (
+                <p className="errorMessage">{errors.title.message}</p>
+              )}
               <label htmlFor="status">Selecionar status</label>
               <select id="status" {...register("status")}>
                 <option value="">Selecionar </option>
@@ -52,7 +70,9 @@ const Modal = ({ isEdit, open, closeModal, techId, setRefetch }) => {
                 <option value="Intermediário">Intermediário</option>
                 <option value="Avançado">Avançado</option>
               </select>
-              {errors.status && <p className="errorMessage">{errors.status.message}</p>}
+              {errors.status && (
+                <p className="errorMessage">{errors.status.message}</p>
+              )}
               <div>
                 {isEdit ? (
                   <div className="buttonsModal">
@@ -62,7 +82,7 @@ const Modal = ({ isEdit, open, closeModal, techId, setRefetch }) => {
                     <button
                       id="deleteButton"
                       type="button"
-                      onClick={() => deleteTech(techId)}
+                      onClick={handleDeleteTech}
                     >
                       Excluir
                     </button>

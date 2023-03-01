@@ -1,7 +1,7 @@
 import React from "react"
 import { ListStyle } from "./style"
 
-const TechList = ({ techs, openModal, setTechId }) => {
+const TechList = ({ techs, openModal, setTechId, setTechName }) => {
   return (
     <ListStyle>
       {techs.map((tech) => (
@@ -9,6 +9,7 @@ const TechList = ({ techs, openModal, setTechId }) => {
           key={tech.id}
           onClick={() => {
             setTechId(tech.id)
+            setTechName(tech.title)
             openModal(true)
           }}
         >

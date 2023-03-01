@@ -12,6 +12,7 @@ const Dashboard = () => {
   const [open, setOpen] = useState(false)
   const [isEdit, setIsEdit] = useState(false)
   const [techId, setTechId] = useState("")
+  const [techName, setTechName] = useState("")
   const [refetch, setRefetch] = useState(false)
 
   const navigate = useNavigate()
@@ -28,6 +29,8 @@ const Dashboard = () => {
   const closeModal = () => {
     setOpen(false)
     setIsEdit(false)
+    setTechId('')
+    setTechName('')
   }
 
   const [user, setUser] = useState()
@@ -36,11 +39,11 @@ const Dashboard = () => {
   useEffect(() => {
     if (!token) {
       navigate("/")
-    } 
+    }
   }, [])
 
   useEffect(() => {
-    if(token){
+    if (token) {
       getUser(userId).then(setUser)
     }
   }, [refetch])
@@ -51,23 +54,29 @@ const Dashboard = () => {
         <HeaderHome button="Sair" />
         <div className="userInformation">
           <h1>
-            Olá,  <span className="userName">{user?.name}</span>
+            Olá, <span className="userName">{user?.name}</span>
           </h1>
           <span id="userModule">{user?.course_module}</span>
         </div>
         <div className="containerAddTech">
           <p>Tecnologias</p>
-          <button id="addButton" onClick={() => openModal()}>+</button>
+          <button id="addButton" onClick={() => openModal()}>
+            +
+          </button>
         </div>
         {user && (
           <TechList
             setTechId={setTechId}
             techs={user.techs}
             openModal={openModal}
+            setTechName={setTechName}
           />
         )}
         <Modal
           techId={techId}
+          setTechId={setTechId}
+          techName={techName}
+          setTechName={setTechName}
           open={open}
           setRefetch={setRefetch}
           isEdit={isEdit}
