@@ -32,5 +32,5 @@ Bibliotecas utilizadas:
 --> *yup*.   
 
 
-Deploy: https://kenzie-hub-part1-9t92vqtym-carol-rocha.vercel.app/
+Acesse o projeto pelo link: https://kenzie-hub-part1-9t92vqtym-carol-rocha.vercel.app/
 
