@@ -27,5 +27,5 @@ A Kenzie-Hub é uma aplicação web que oferece uma experiência interativa para
 ➜ yup.
 
 
- 🚀 Acesse o projeto pelo link: https://kenzie-hub-part1-9t92vqtym-carol-rocha.vercel.app/
+ 🚀 Acesse o projeto pelo link: https://kenzie-hub-part1.vercel.app/
 
