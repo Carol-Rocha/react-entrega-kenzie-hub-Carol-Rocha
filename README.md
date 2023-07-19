@@ -1,36 +1,31 @@
-# react-entrega-kenzie-hub-Carol-Rocha
+# kenzie-hub
 
-A kenzie-Hub é uma aplicação que simula uma rede onde o usuário loga e realiza o cadastro de suas principais habilidades profissionais e conhecimentos de tecnologia. 
+A Kenzie-Hub é uma aplicação web que oferece uma experiência interativa para usuários registrados compartilharem suas principais habilidades profissionais e conhecimentos de tecnologia. A plataforma permite que os usuários se cadastrem, acessem suas contas e atualizem suas informações.
 
-##
+# Recursos da aplicação:
 
-Funções da aplicação:
+➜ Login e Logout: Os usuários podem fazer login em suas contas existentes e fazer logout quando desejarem.
 
---> *Login e Logout*;
+➜ Cadastro de Usuário: A plataforma permite que novos usuários se cadastrem, fornecendo informações básicas e criando um perfil personalizado.
 
---> *Cadastrar um novo usuário*;
+➜ Gerenciamento de Tecnologias: Os usuários têm a capacidade de adicionar tecnologias relevantes ao seu perfil, destacando suas habilidades e conhecimentos específicos.
 
---> *Adicionar tecnologias*;
+➜Exclusão de Tecnologias: Caso um usuário queira remover uma tecnologia do seu perfil, a Kenzie-Hub oferece a funcionalidade de exclusão.
 
---> *Excluir tecnologias*.
+# Bibliotecas utilizadas:
 
+➜ axios;
 
-##
+➜ react-hook-form;
 
-Bibliotecas utilizadas:
+➜ react-router-dom;
 
---> *axios*;   
+➜ react-toastify;
 
---> *react-hook-form*;   
+➜ styled-components;
 
---> *react-router-dom*;   
-
---> *react-toastify*;   
-
---> *styled-components*;   
-
---> *yup*.   
+➜ yup.
 
 
-Acesse o projeto pelo link: https://kenzie-hub-part1-9t92vqtym-carol-rocha.vercel.app/
+ 🚀 Acesse o projeto pelo link: https://kenzie-hub-part1-9t92vqtym-carol-rocha.vercel.app/
 
